@@ -61,7 +61,8 @@ int					main(int ac, char **av)
 		return (0);
 	init_ps(&meta);
 	meta.program = 'c';
-	parse_in(ac, av, &meta);
+	if (parse_in(ac, av, &meta, 0) == 1)
+		return (0);
 	meta.a = meta.p[0];
 	commands(&meta.a, &meta.b, &meta);
 	ft_putendl(check(meta.a, meta.b) ? "\033[32mOK\033[0m" :

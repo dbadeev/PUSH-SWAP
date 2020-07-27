@@ -44,7 +44,8 @@ int					main(int ac, char **av)
 	{
 		init_ps(&meta);
 		meta.program = 'p';
-		parse_in(ac, av, &meta);
+		if (parse_in(ac, av, &meta, 0) == 1)
+			ps_hint();
 		if (ft_lstsorted(*meta.p) == 0)
 		{
 			meta.a = meta.p[0];

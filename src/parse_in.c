@@ -85,17 +85,18 @@ static void			parse_data(int ac, int temp_ac, char **av, t_meta *meta)
 	}
 }
 
-void				parse_in(int ac, char **av, t_meta *meta)
+int					parse_in(int ac, char **av, t_meta *meta, unsigned j)
 {
 	unsigned	i;
-	unsigned	j;
 
 	i = 1;
 	j = 0;
-	while ((check_param(av[i], meta) > 0) && (i <= (unsigned)ac))
+	while ((i < (unsigned)ac) && (check_param(av[i], meta) > 0))
 		i++;
 	if (i < (unsigned)ac)
 		parse_data(ac, (int)i, av, meta);
+	else
+		return (1);
 	i = 0;
 	while (i < meta->nums)
 	{
@@ -110,4 +111,5 @@ void				parse_in(int ac, char **av, t_meta *meta)
 		}
 		i++;
 	}
+	return (0);
 }

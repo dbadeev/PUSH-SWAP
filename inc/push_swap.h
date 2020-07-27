@@ -37,7 +37,7 @@ typedef struct		s_ps
 
 void				ps_hint(void);
 void				init_ps(t_meta *meta);
-void				parse_in(int ac, char **av, t_meta *meta);
+int					parse_in(int ac, char **av, t_meta *meta, unsigned j);
 int					command_in(char *cmd, t_stack **a, t_stack **b, t_meta *m);
 void				div_sort_parts(t_mstack **s, t_meta *m);
 void				move_up_part(t_mstack **s, t_meta *m);
