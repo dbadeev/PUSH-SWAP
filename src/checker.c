@@ -22,11 +22,16 @@ static void			print_total(int ap)
 static void			commands(t_stack **a, t_stack **b, t_meta *m)
 {
 	char	*cmd;
+	int		res;
 
+	res = -1;
 	while (get_next_line(0, &cmd) > 0)
 	{
-		command_in(cmd, a, b, m);
+		res = command_in(cmd, a, b, m);
 		free(cmd);
+		cmd = NULL;
+		if (res == 1)
+			ft_putstr("\033[31mError\033[0m\n");
 	}
 	if (cmd && *cmd)
 	{

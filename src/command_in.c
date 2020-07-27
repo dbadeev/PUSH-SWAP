@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void		command_in(char *cmd, t_stack **a, t_stack **b, t_meta *m)
+int		command_in(char *cmd, t_stack **a, t_stack **b, t_meta *m)
 {
 	if (ft_strequ(cmd, "sa"))
 		sa(a, m);
@@ -37,5 +37,6 @@ void		command_in(char *cmd, t_stack **a, t_stack **b, t_meta *m)
 	else if (ft_strequ(cmd, "rrr"))
 		rrr(a, b, m);
 	else
-		ft_exit(m);
+		return (1);
+	return (0);
 }

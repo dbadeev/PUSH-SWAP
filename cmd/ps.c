@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int		sa(t_stack **a, t_meta *m)
+void		sa(t_stack **a, t_meta *m)
 {
 	if ((m->flags.v == 0) && (m->program == 'p'))
 		ft_putendl("sa");
@@ -20,10 +20,9 @@ int		sa(t_stack **a, t_meta *m)
 	m->size++;
 	if (m->flags.v != 0)
 		print_status("sa", &m->a, &m->b, m->flags);
-	return (1);
 }
 
-int		sb(t_stack **b, t_meta *m)
+void		sb(t_stack **b, t_meta *m)
 {
 	if ((m->flags.v == 0) && (m->program == 'p'))
 		ft_putendl("sb");
@@ -31,10 +30,9 @@ int		sb(t_stack **b, t_meta *m)
 	m->size++;
 	if (m->flags.v != 0)
 		print_status("sb", &m->a, &m->b, m->flags);
-	return (1);
 }
 
-int		ss(t_stack **a, t_stack **b, t_meta *m)
+void		ss(t_stack **a, t_stack **b, t_meta *m)
 {
 	if ((m->flags.v == 0) && (m->program == 'p'))
 		ft_putendl("ss");
@@ -43,10 +41,9 @@ int		ss(t_stack **a, t_stack **b, t_meta *m)
 	m->size++;
 	if (m->flags.v != 0)
 		print_status("ss", &m->a, &m->b, m->flags);
-	return (1);
 }
 
-int		pa(t_stack **a, t_stack **b, t_meta *m)
+void		pa(t_stack **a, t_stack **b, t_meta *m)
 {
 	if ((m->flags.v == 0) && (m->program == 'p'))
 		ft_putendl("pa");
@@ -54,10 +51,9 @@ int		pa(t_stack **a, t_stack **b, t_meta *m)
 	m->size++;
 	if (m->flags.v != 0)
 		print_status("pa", &m->a, &m->b, m->flags);
-	return (1);
 }
 
-int		pb(t_stack **a, t_stack **b, t_meta *m)
+void		pb(t_stack **a, t_stack **b, t_meta *m)
 {
 	if ((m->flags.v == 0) && (m->program == 'p'))
 		ft_putendl("pb");
@@ -65,5 +61,4 @@ int		pb(t_stack **a, t_stack **b, t_meta *m)
 	m->size++;
 	if (m->flags.v != 0)
 		print_status("pb", &m->a, &m->b, m->flags);
-	return (1);
 }

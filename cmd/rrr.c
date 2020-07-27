@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int		rra(t_stack **a, t_meta *m)
+void		rra(t_stack **a, t_meta *m)
 {
 	if ((m->flags.v == 0) && (m->program == 'p'))
 		ft_putendl("rra");
@@ -20,10 +20,9 @@ int		rra(t_stack **a, t_meta *m)
 	m->size++;
 	if (m->flags.v != 0)
 		print_status("rra", &m->a, &m->b, m->flags);
-	return (1);
 }
 
-int		rrb(t_stack **b, t_meta *m)
+void		rrb(t_stack **b, t_meta *m)
 {
 	if ((m->flags.v == 0) && (m->program == 'p'))
 		ft_putendl("rrb");
@@ -31,10 +30,9 @@ int		rrb(t_stack **b, t_meta *m)
 	m->size++;
 	if (m->flags.v != 0)
 		print_status("rrb", &m->a, &m->b, m->flags);
-	return (1);
 }
 
-int		rrr(t_stack **a, t_stack **b, t_meta *m)
+void		rrr(t_stack **a, t_stack **b, t_meta *m)
 {
 	if ((m->flags.v == 0) && (m->program == 'p'))
 		ft_putendl("rrr");
@@ -43,5 +41,4 @@ int		rrr(t_stack **a, t_stack **b, t_meta *m)
 	m->size++;
 	if (m->flags.v != 0)
 		print_status("rrr", &m->a, &m->b, m->flags);
-	return (1);
 }

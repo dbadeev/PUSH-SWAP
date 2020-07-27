@@ -45,8 +45,11 @@ static void		mini_sorting_four_a_five(t_meta *m, unsigned comb)
 	if (comb == 4231 || comb == 4312 || comb == 4321)
 	{
 		ra(&m->a, m);
-		if ((comb == 4231) && pb(&m->a, &m->b, m))
+		if (comb == 4231)
+		{
+			pb(&m->a, &m->b, m);
 			ra(&m->a, m);
+		}
 		else
 		{
 			ra(&m->a, m);

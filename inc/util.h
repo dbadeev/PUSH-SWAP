@@ -63,17 +63,17 @@ typedef struct		s_meta
 /*
 ** cmd
 */
-int					sa(t_stack **a, t_meta *m);
-int					sb(t_stack **b, t_meta *m);
-int					ss(t_stack **a, t_stack **b, t_meta *m);
-int					pa(t_stack **a, t_stack **b, t_meta *m);
-int					pb(t_stack **a, t_stack **b, t_meta *m);
-int					ra(t_stack **a, t_meta *m);
-int					rb(t_stack **b, t_meta *m);
-int					rr(t_stack **a, t_stack **b, t_meta *m);
-int					rra(t_stack **a, t_meta *m);
-int					rrb(t_stack **b, t_meta *m);
-int					rrr(t_stack **a, t_stack **b, t_meta *m);
+void				sa(t_stack **a, t_meta *m);
+void				sb(t_stack **b, t_meta *m);
+void				ss(t_stack **a, t_stack **b, t_meta *m);
+void				pa(t_stack **a, t_stack **b, t_meta *m);
+void				pb(t_stack **a, t_stack **b, t_meta *m);
+void				ra(t_stack **a, t_meta *m);
+void				rb(t_stack **b, t_meta *m);
+void				rr(t_stack **a, t_stack **b, t_meta *m);
+void				rra(t_stack **a, t_meta *m);
+void				rrb(t_stack **b, t_meta *m);
+void				rrr(t_stack **a, t_stack **b, t_meta *m);
 /*
 ** util
 */
