@@ -32,7 +32,7 @@ static void			sorting(t_mstack **s, t_meta *m)
 	}
 }
 
-int					main(int ac, char **av)
+int					main1(int ac, char **av)
 {
 	t_meta		meta;
 	t_mstack	*t;
@@ -50,7 +50,7 @@ int					main(int ac, char **av)
 		{
 			meta.a = meta.p[0];
 			if (ft_mstack_pop(&t, 0, meta.nums, 0) < 0)
-				ft_exit(&meta);
+				ft_exit(ERR_MEMALLOC, &meta);
 			sorting(&t, &meta);
 		}
 		if (meta.flags.t)

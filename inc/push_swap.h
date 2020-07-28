@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "util.h"
+# include "messages.h"
 # include "libft.h"
 # include "get_next_line.h"
 

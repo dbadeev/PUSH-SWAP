@@ -20,9 +20,9 @@ void		div_parts_a(t_mstack **s, t_meta *m, unsigned first)
 	if (s[0]->quantity == ft_lstsize(m->b))
 		s[0]->pos = 10;
 	if (ft_mstack_pop(s, m->min, m->mid, 10) < 0)
-		ft_exit(m);
+		ft_exit(ERR_MEMALLOC, m);
 	if (ft_mstack_pop(s, m->mid, m->max, 1) < 0)
-		ft_exit(m);
+		ft_exit(ERR_MEMALLOC, m);
 	if (s[0]->quantity == ft_lstsize(m->a))
 		s[0]->pos = 0;
 }

@@ -17,7 +17,7 @@ void	ft_mstack_push(t_mstack **s)
 	t_mstack *tmp;
 
 	if (s == NULL)
-		ft_exit(0);
+		ft_exit(ERR_OPERATION, 0);
 	else
 	{
 		tmp = (*s);

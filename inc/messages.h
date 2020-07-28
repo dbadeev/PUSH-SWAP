@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   div_parts_b.c                                      :+:      :+:    :+:   */
+/*   messages.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: loram <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/25 23:24:43 by loram             #+#    #+#             */
-/*   Updated: 2020/07/25 23:24:45 by loram            ###   ########.fr       */
+/*   Created: 2020/07/28 01:24:35 by loram             #+#    #+#             */
+/*   Updated: 2020/07/28 01:24:37 by loram            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef MESSAGES_H
+# define MESSAGES_H
 
-void		div_parts_b(t_mstack **s, t_meta *m, unsigned first)
-{
-	s[0]->first = first;
-	s[0]->quantity = m->min - first;
-	s[0]->pos = 11;
-	if (ft_mstack_pop(s, m->min, m->mid, 1) < 0)
-		ft_exit(ERR_MEMALLOC, m);
-	if (ft_mstack_pop(s, m->mid, m->max, 0) < 0)
-		ft_exit(ERR_MEMALLOC, m);
-}
+# define ERR_MEMALLOC		"Error"
+# define ERR_NAN			"Error"
+# define ERR_NOT_COMMAND	"Error"
+# define ERR_DUPLICATE		"Error"
+# define ERR_OPERATION		"Error"
+# define ERR_INVALID_SYM	"Error"
+
+#endif

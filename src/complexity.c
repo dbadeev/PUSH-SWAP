@@ -48,18 +48,18 @@ static void		div_sort_parts_complexity(t_mstack **s, t_meta *m,
 		m->a_nums -= s[0]->quantity - m->max + m->mid;
 		m->b_nums += s[0]->quantity - m->max + m->mid;
 		if (ft_mstack_pop(s, m->min, m->mid, 10) < 0)
-			ft_exit(m);
+			ft_exit(ERR_MEMALLOC, m);
 		if (ft_mstack_pop(s, m->mid, m->max, 1) < 0)
-			ft_exit(m);
+			ft_exit(ERR_MEMALLOC, m);
 	}
 	else if (s[0]->pos == 10)
 	{
 		m->b_nums -= s[0]->quantity - m->min + first;
 		m->a_nums += s[0]->quantity - m->min + first;
 		if (ft_mstack_pop(s, m->min, m->mid, 1) < 0)
-			ft_exit(m);
+			ft_exit(ERR_MEMALLOC, m);
 		if (ft_mstack_pop(s, m->mid, m->max, 0) < 0)
-			ft_exit(m);
+			ft_exit(ERR_MEMALLOC, m);
 	}
 	s[0]->next->next->quantity = m->min - first;
 	s[0]->next->next->pos = 11;
@@ -88,7 +88,7 @@ static int		complexity(t_meta *m, unsigned num, int level)
 	t = NULL;
 	m->complexity = 0.;
 	if (ft_mstack_pop(&t, 0, num, 0) < 0)
-		ft_exit(m);
+		ft_exit(ERR_MEMALLOC, m);
 	m->a_nums = num;
 	while (t)
 	{
@@ -109,7 +109,7 @@ static int		complexity(t_meta *m, unsigned num, int level)
 	return ((int)m->complexity);
 }
 
-int				main(int ac, char **av)
+int				main2(int ac, char **av)
 {
 	t_meta			meta;
 	int				nums;
@@ -131,7 +131,7 @@ int				main(int ac, char **av)
 				ft_print_complexity(nums, sup, complexity(&meta, nums, 0));
 		}
 		else
-			ft_exit(&meta);
+			ft_exit(ERR_NAN, &meta);
 	}
 	return (0);
 }

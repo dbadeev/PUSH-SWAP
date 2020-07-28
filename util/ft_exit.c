@@ -12,9 +12,11 @@
 
 #include "push_swap.h"
 
-void	ft_exit(t_meta *meta)
+void	ft_exit(char *str, t_meta *meta)
 {
-	ft_putstr("\033[31mError\033[0m\n");
+	ft_putstr_fd("\033[31m", 2);
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd("\033[0m\n", 2);
 	if (meta && meta->p)
 		ft_lstfree(meta->p);
 	exit(1);

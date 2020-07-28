@@ -25,17 +25,17 @@ int		ft_atoi_ps(const char *str, t_meta *meta)
 	i = (str[0] == '+' || str[0] == '-') ? 1 : 0;
 	if ((str[i] == '\0') || !((str[i] >= '0' && str[i] <= '9') ||
 										str[0] == '-' || str[0] == '+'))
-		(meta->p) ? ft_exit(meta) : ft_exit(0);
+		(meta->p) ? ft_exit(ERR_NAN, meta) : ft_exit(ERR_NAN, 0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		result = result * 10 + (str[i] - '0');
 		if ((prev != result / 10) && (sign == 1 ||
 				((sign == -1) && (prev == result / -10) && (str[i] != '8'))))
-			ft_exit(meta);
+			ft_exit(ERR_NAN, meta);
 		prev = result;
 		i++;
 	}
 	if (str[i] != '\0')
-		ft_exit(meta);
+		ft_exit(ERR_NAN, meta);
 	return (result * sign);
 }

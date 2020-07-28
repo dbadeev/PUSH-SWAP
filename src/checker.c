@@ -19,24 +19,41 @@ static void			print_total(int ap)
 	ft_putchar('\n');
 }
 
+static int			read_action(t_stack **a, t_stack **b, t_meta *m)
+{
+	int		i;
+	int		ret;
+	char	c;
+	char	cmd[4];
+
+	ft_bzero(cmd, sizeof(char) * 4);
+	i = 0;
+	while ((ret = read(0, &c, 1)) > 0)
+	{
+		if (c == '\n')
+			return (command_in(cmd, a, b, m));
+		if (i >= 3)
+		{
+			while (c != '\n')
+				read(0, &c, 1);
+			return (1);
+		}
+		cmd[i] = c;
+		i++;
+		cmd[i] = '\0';
+	}
+	return (ret == 0 ? 10 : -1);
+}
+
 static void			commands(t_stack **a, t_stack **b, t_meta *m)
 {
-	char	*cmd;
 	int		res;
 
 	res = -1;
-	while (get_next_line(0, &cmd) > 0)
+	while ((res = read_action(a, b, m)) != 10)
 	{
-		res = command_in(cmd, a, b, m);
-		free(cmd);
-		cmd = NULL;
 		if (res == 1)
-			ft_putstr("\033[31mError\033[0m\n");
-	}
-	if (cmd && *cmd)
-	{
-		free(cmd);
-		cmd = NULL;
+			ft_exit(ERR_NOT_COMMAND, m);
 	}
 }
 

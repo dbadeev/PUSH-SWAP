@@ -85,7 +85,7 @@ void				ft_lstswp(t_stack **s);
 void				ft_lstfree(t_stack **s);
 unsigned			ft_lstsize(t_stack *a);
 int					ft_lstsorted(t_stack *s);
-void				ft_exit(t_meta *meta);
+void				ft_exit(char *str, t_meta *meta);
 void				ft_lstprint(t_stack *a);
 int					ft_mstack_pop(t_mstack **s, unsigned first, unsigned last,
 																	int pos);

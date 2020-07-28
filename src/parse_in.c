@@ -34,7 +34,7 @@ static int			check_param(char *av, t_meta *meta)
 		|| ft_isdigit(av[0]))
 		return (0);
 	else if ((av[0] != '-') || ((av[0] == '-') && (av[1] == '\0')))
-		ft_exit(0);
+		ft_exit(ERR_INVALID_SYM, 0);
 	i = 1;
 	while (av[i] != '\0')
 	{
@@ -45,7 +45,7 @@ static int			check_param(char *av, t_meta *meta)
 			i++;
 		}
 		else
-			ft_exit(0);
+			ft_exit(ERR_INVALID_SYM, 0);
 	}
 	return (1);
 }
@@ -55,7 +55,7 @@ static t_stack		*ft_lstget(t_stack *a, int num, t_meta *meta)
 	t_stack	*tmp;
 
 	if (!(tmp = ft_memalloc(sizeof(t_stack))))
-		ft_exit(meta);
+		ft_exit(ERR_MEMALLOC, meta);
 	if (tmp)
 	{
 		tmp->num = num;
@@ -74,7 +74,7 @@ static void			parse_data(int ac, int temp_ac, char **av, t_meta *meta)
 
 	j = 0;
 	if (!(meta->p = ft_memalloc(sizeof(t_stack*) * (ac - temp_ac + 1))))
-		ft_exit(meta);
+		ft_exit(ERR_MEMALLOC, meta);
 	meta->nums = ac - temp_ac;
 	while (j < meta->nums)
 	{
@@ -104,7 +104,7 @@ int					parse_in(int ac, char **av, t_meta *meta, unsigned j)
 		while (j < meta->nums)
 		{
 			if ((i != j) && (meta->p[i]->num == meta->p[j]->num))
-				ft_exit(meta);
+				ft_exit(ERR_DUPLICATE, meta);
 			else if ((i != j) && (meta->p[i]->num > meta->p[j]->num))
 				meta->p[i]->label++;
 			j++;
