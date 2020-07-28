@@ -109,7 +109,7 @@ static int		complexity(t_meta *m, unsigned num, int level)
 	return ((int)m->complexity);
 }
 
-int				main2(int ac, char **av)
+int				main(int ac, char **av)
 {
 	t_meta			meta;
 	int				nums;

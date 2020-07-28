@@ -32,7 +32,7 @@ static void			sorting(t_mstack **s, t_meta *m)
 	}
 }
 
-int					main1(int ac, char **av)
+int					main(int ac, char **av)
 {
 	t_meta		meta;
 	t_mstack	*t;
