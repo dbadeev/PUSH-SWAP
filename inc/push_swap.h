@@ -38,14 +38,15 @@ typedef struct		s_ps
 
 void				ps_hint(void);
 void				init_ps(t_meta *meta);
-int					parse_in(int ac, char **av, t_meta *meta, unsigned j);
+int					parse_in(int ac, char **av, t_meta *meta, int j);
 int					command_in(char *cmd, t_stack **a, t_stack **b, t_meta *m);
 void				div_sort_parts(t_mstack **s, t_meta *m);
 void				move_up_part(t_mstack **s, t_meta *m);
 void				print_status(char *cmd, t_stack **a, t_stack **b,
 															t_flags flags);
-void				div_parts_a(t_mstack **s, t_meta *m, unsigned first);
-void				div_parts_b(t_mstack **s, t_meta *m, unsigned first);
+void				print_total(int ap);
+void				div_parts_a(t_mstack **s, t_meta *m, int first);
+void				div_parts_b(t_mstack **s, t_meta *m, int first);
 void				mini_sorting(t_mstack **s, t_meta *m);
 
 #endif

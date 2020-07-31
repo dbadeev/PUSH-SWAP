@@ -12,13 +12,6 @@
 
 #include "push_swap.h"
 
-static void			print_total(int ap)
-{
-	ft_putstr("Total actions: ");
-	ft_putnbr(ap);
-	ft_putchar('\n');
-}
-
 static void			sorting(t_mstack **s, t_meta *m)
 {
 	while (s[0])

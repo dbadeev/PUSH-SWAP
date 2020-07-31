@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-unsigned int			ft_lstsize(t_stack *a)
+int				ft_lstsize(t_stack *a)
 {
 	int		n;
 

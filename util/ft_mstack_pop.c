@@ -20,7 +20,7 @@
 
 #include "push_swap.h"
 
-int		ft_mstack_pop(t_mstack **s, unsigned first, unsigned last, int pos)
+int		ft_mstack_pop(t_mstack **s, int first, int last, int pos)
 {
 	t_mstack	*tmp;
 

@@ -12,6 +12,7 @@
 
 #include "get_next_line.h"
 #include "libft.h"
+#include <unistd.h>
 
 static	void				remove_fdlist(int fd, t_glist **stock)
 {

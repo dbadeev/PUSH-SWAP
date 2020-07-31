@@ -14,7 +14,7 @@
 
 static void			mini_sorting_four(t_mstack **s, t_meta *m)
 {
-	unsigned	comb;
+	int	comb;
 
 	if (s[0]->pos == 10)
 	{
@@ -76,7 +76,7 @@ static void			mini_sorted_plus_one(t_mstack **s, t_meta *m)
 
 static void			mini_sorting_three(t_mstack **s, t_meta *m)
 {
-	unsigned	comb;
+	int	comb;
 
 	comb = 0;
 	if (s[0]->pos == 10)

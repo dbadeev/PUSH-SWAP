@@ -13,21 +13,17 @@
 #ifndef UTIL_H
 # define UTIL_H
 
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
 typedef struct		s_stack
 {
 	int				num;
-	unsigned		label;
+	int				label;
 	struct s_stack	*next;
 }					t_stack;
 
 typedef struct		s_mstack
 {
-	unsigned		first;
-	unsigned		quantity;
+	int				first;
+	int				quantity;
 	int				pos;
 	struct s_mstack	*next;
 }					t_mstack;
@@ -45,18 +41,18 @@ typedef struct		s_flags
 typedef struct		s_meta
 {
 	char			program;
-	unsigned		nums;
-	unsigned		a_nums;
-	unsigned		b_nums;
-	unsigned		min;
-	unsigned		mid;
-	unsigned		max;
+	int				nums;
+	int				a_nums;
+	int				b_nums;
+	int				min;
+	int				mid;
+	int				max;
 	t_stack			**p;
 	t_stack			*a;
 	t_stack			*b;
 	t_flags			flags;
-	unsigned		size;
-	unsigned		sorted;
+	int				size;
+	int				sorted;
 	double			complexity;
 }					t_meta;
 
@@ -83,19 +79,18 @@ void				ft_lst_rrr(t_stack **s);
 void				ft_lst_rr(t_stack **s);
 void				ft_lstswp(t_stack **s);
 void				ft_lstfree(t_stack **s);
-unsigned			ft_lstsize(t_stack *a);
+t_stack				*ft_lstget(t_stack *a, int num, t_meta *meta);
+int					ft_lstsize(t_stack *a);
 int					ft_lstsorted(t_stack *s);
 void				ft_exit(char *str, t_meta *meta);
 void				ft_lstprint(t_stack *a);
-int					ft_mstack_pop(t_mstack **s, unsigned first, unsigned last,
-																	int pos);
+int					ft_mstack_pop(t_mstack **s, int first, int last, int pos);
 void				ft_mstack_push(t_mstack **s);
 void				ft_del_mstack(t_mstack **s);
-void				ft_mini_sort_three_ab(t_mstack **s, t_meta *m,
-															unsigned comb);
-void				ft_mini_sort_four_a_two(t_meta *m, unsigned comb);
-void				ft_mini_sort_four_a_one(t_meta *m, unsigned comb);
-void				ft_mini_sort_four_b_one(t_meta *m, unsigned comb);
-void				ft_mini_sort_four_b_two(t_meta *m, unsigned comb);
+void				ft_mini_sort_three_ab(t_mstack **s, t_meta *m, int comb);
+void				ft_mini_sort_four_a_two(t_meta *m, int comb);
+void				ft_mini_sort_four_a_one(t_meta *m, int comb);
+void				ft_mini_sort_four_b_one(t_meta *m, int comb);
+void				ft_mini_sort_four_b_two(t_meta *m, int comb);
 void				ft_print_complexity(int nums, int sup, int complexity);
 #endif

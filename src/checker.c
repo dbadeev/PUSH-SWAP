@@ -11,13 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void			print_total(int ap)
-{
-	ft_putstr("Total actions: ");
-	ft_putnbr(ap);
-	ft_putchar('\n');
-}
+#include <unistd.h>
 
 static int			read_action(t_stack **a, t_stack **b, t_meta *m)
 {

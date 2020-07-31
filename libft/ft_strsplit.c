@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include <stdlib.h>
+#include <unistd.h>
 
 static size_t		ft_count_parts(char const *s, char c)
 {
@@ -45,14 +46,18 @@ static char			*ft_get_part(char *s, char c)
 	return (ft_strdup(start));
 }
 
-static void			ft_free_parts(char **parts, size_t i)
+static void			ft_free_parts(char **parts)
 {
-	while (i > 0)
+	ssize_t		i;
+
+	i = -1;
+	while (parts[++i] != NULL)
 	{
-		ft_strdel(&(parts[i]));
-		i--;
+		free(parts[i]);
+		parts[i] = NULL;
 	}
-	free(*parts);
+	free(parts);
+	parts = NULL;
 }
 
 static char			**ft_get_parts(char *s, char c, size_t parts_num)
@@ -63,6 +68,7 @@ static char			**ft_get_parts(char *s, char c, size_t parts_num)
 	size_t		j;
 
 	i = 0;
+	part = NULL;
 	if ((parts = (char **)ft_memalloc(sizeof(char *) * (parts_num + 1))))
 		while (i < parts_num)
 		{
@@ -72,7 +78,7 @@ static char			**ft_get_parts(char *s, char c, size_t parts_num)
 			if (s[j] != '\0')
 				if (!(part = ft_get_part(s + j, c)))
 				{
-					ft_free_parts(parts, i);
+					ft_free_parts(parts);
 					return (NULL);
 				}
 			parts[i] = part;
@@ -91,5 +97,6 @@ char				**ft_strsplit(char const *s, char c)
 		return (NULL);
 	parts = ft_get_parts(str, c, ft_count_parts(str, c));
 	free(str);
+	str = NULL;
 	return (parts);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void		mini_sorting_three_b_two(t_meta *m, unsigned comb)
+static void		mini_sorting_three_b_two(t_meta *m, int comb)
 {
 	if (comb == 231 || comb == 321)
 	{
@@ -24,7 +24,7 @@ static void		mini_sorting_three_b_two(t_meta *m, unsigned comb)
 	}
 }
 
-static void		mini_sorting_three_b_one(t_meta *m, unsigned comb)
+static void		mini_sorting_three_b_one(t_meta *m, int comb)
 {
 	if (comb == 123 || comb == 213)
 	{
@@ -49,7 +49,7 @@ static void		mini_sorting_three_b_one(t_meta *m, unsigned comb)
 		mini_sorting_three_b_two(m, comb);
 }
 
-static void		mini_sorting_three_a(t_meta *m, unsigned comb)
+static void		mini_sorting_three_a(t_meta *m, int comb)
 {
 	if (comb == 132 || comb == 312)
 	{
@@ -72,7 +72,7 @@ static void		mini_sorting_three_a(t_meta *m, unsigned comb)
 		sa(&m->a, m);
 }
 
-static void		mini_sorting_three_only_a(t_meta *m, unsigned comb)
+static void		mini_sorting_three_only_a(t_meta *m, int comb)
 {
 	if (comb == 132 || comb == 231)
 	{
@@ -90,7 +90,7 @@ static void		mini_sorting_three_only_a(t_meta *m, unsigned comb)
 		ra(&m->a, m);
 }
 
-void			ft_mini_sort_three_ab(t_mstack **s, t_meta *m, unsigned comb)
+void			ft_mini_sort_three_ab(t_mstack **s, t_meta *m, int comb)
 {
 	if (s[0]->pos == 10)
 		mini_sorting_three_b_one(m, comb);

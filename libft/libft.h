@@ -14,8 +14,6 @@
 # define LIBFT_H
 
 # include <stdlib.h>
-# include <unistd.h>
-# include <string.h>
 # include "macro.h"
 # include "get_next_line.h"
 
@@ -97,6 +95,8 @@ char				*ft_strnjoin(char const *s1, char const *s2, size_t len);
 int					ft_istabeolsp(int c);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
+size_t				ft_strsplit_len(char **strsplit);
+void				ft_strsplit_free(char **parts);
 char				*ft_itoa(int n);
 int					ft_numlen(unsigned long long num);
 void				ft_putchar(char c);

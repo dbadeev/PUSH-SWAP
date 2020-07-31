@@ -30,8 +30,10 @@ static int			check_param(char *av, t_meta *meta)
 {
 	int		i;
 
+	if (av[0] == '\0')
+		return (1);
 	if (((av[0] == '-' || av[0] == '+') && ft_isdigit(av[1]))
-		|| ft_isdigit(av[0]))
+		|| ft_isdigit(av[0]) || av[0] == ' ' || av[0] == '\t' || av[0] == '\v')
 		return (0);
 	else if ((av[0] != '-') || ((av[0] == '-') && (av[1] == '\0')))
 		ft_exit(ERR_INVALID_SYM, 0);
@@ -50,27 +52,10 @@ static int			check_param(char *av, t_meta *meta)
 	return (1);
 }
 
-static t_stack		*ft_lstget(t_stack *a, int num, t_meta *meta)
-{
-	t_stack	*tmp;
-
-	if (!(tmp = ft_memalloc(sizeof(t_stack))))
-		ft_exit(ERR_MEMALLOC, meta);
-	if (tmp)
-	{
-		tmp->num = num;
-		tmp->label = 0;
-		tmp->next = NULL;
-	}
-	if (a)
-		a->next = tmp;
-	return (tmp);
-}
-
 static void			parse_data(int ac, int temp_ac, char **av, t_meta *meta)
 {
-	unsigned	j;
-	int			num;
+	int		j;
+	int		num;
 
 	j = 0;
 	if (!(meta->p = ft_memalloc(sizeof(t_stack*) * (ac - temp_ac + 1))))
@@ -85,18 +70,44 @@ static void			parse_data(int ac, int temp_ac, char **av, t_meta *meta)
 	}
 }
 
-int					parse_in(int ac, char **av, t_meta *meta, unsigned j)
+static int			parse_str(char *str, t_meta *meta, int j)
 {
-	unsigned	i;
+	char	**numbers;
+	int		num;
 
-	i = 1;
-	j = 0;
-	while ((i < (unsigned)ac) && (check_param(av[i], meta) > 0))
-		i++;
-	if (i < (unsigned)ac)
-		parse_data(ac, (int)i, av, meta);
-	else
+	if (!(numbers = ft_strsplit(str, ' ')))
+		ft_exit(ERR_MEMALLOC, 0);
+	meta->nums = ft_strsplit_len(numbers);
+	if (numbers[0] == '\0')
+	{
+		ft_strsplit_free(numbers);
 		return (1);
+	}
+	if (!(meta->p = ft_memalloc(sizeof(t_stack*) * (meta->nums + 1))))
+	{
+		ft_strsplit_free(numbers);
+		ft_exit(ERR_MEMALLOC, meta);
+	}
+	while (j < meta->nums)
+	{
+		num = ft_atoi_ps(numbers[j], meta);
+		meta->p[j] = (j > 0) ? ft_lstget(meta->p[j - 1], num, meta)
+							: ft_lstget(NULL, num, meta);
+		j++;
+	}
+	ft_strsplit_free(numbers);
+	return (0);
+}
+
+int					parse_in(int ac, char **av, t_meta *meta, int j)
+{
+	int		i;
+
+	i = ((1 < ac) && (check_param(av[1], meta) > 0)) ? 2 : 1;
+	if ((ac == i) || ((ac == i + 1) && (parse_str(av[i], meta, 0) == 1)))
+		return (1);
+	else if ((i < ac) && (ac != i + 1))
+		parse_data(ac, i, av, meta);
 	i = 0;
 	while (i < meta->nums)
 	{

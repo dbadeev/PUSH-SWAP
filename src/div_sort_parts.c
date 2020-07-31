@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-static int			ft_check_alien(t_stack **s, unsigned min, unsigned max)
+static int			ft_check_alien(t_stack **s, int min, int max)
 {
-	unsigned	i;
-	unsigned	j;
+	int			i;
+	int			j;
 	t_stack		*tmp;
 
 	i = 0;
@@ -32,10 +32,9 @@ static int			ft_check_alien(t_stack **s, unsigned min, unsigned max)
 		return (1);
 }
 
-static void			div_sort_b(t_stack **a, t_stack **b, t_meta *m,
-																unsigned nums)
+static void			div_sort_b(t_stack **a, t_stack **b, t_meta *m, int nums)
 {
-	unsigned	i;
+	int			i;
 
 	i = 0;
 	while (i < nums)
@@ -53,10 +52,9 @@ static void			div_sort_b(t_stack **a, t_stack **b, t_meta *m,
 	}
 }
 
-static void			div_sort_a(t_stack **a, t_stack **b, t_meta *m,
-																unsigned nums)
+static void			div_sort_a(t_stack **a, t_stack **b, t_meta *m, int nums)
 {
-	unsigned	i;
+	int			i;
 
 	i = 0;
 	while (i < nums)
@@ -86,7 +84,7 @@ static void			div_sort_ab(t_mstack *s, t_meta *m)
 
 void				div_sort_parts(t_mstack **s, t_meta *m)
 {
-	unsigned	first;
+	int			first;
 
 	first = s[0]->first;
 	m->min = s[0]->first + s[0]->quantity / 3;

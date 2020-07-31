@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void		mini_sorting_four_b_four(t_meta *m, unsigned comb)
+static void		mini_sorting_four_b_four(t_meta *m, int comb)
 {
 	if (comb == 2413 || comb == 2431)
 	{
@@ -39,7 +39,7 @@ static void		mini_sorting_four_b_four(t_meta *m, unsigned comb)
 	}
 }
 
-static void		mini_sorting_four_b_three(t_meta *m, unsigned comb)
+static void		mini_sorting_four_b_three(t_meta *m, int comb)
 {
 	if (comb == 2134 || comb == 2143)
 	{
@@ -66,7 +66,7 @@ static void		mini_sorting_four_b_three(t_meta *m, unsigned comb)
 	}
 }
 
-static void		mini_sorting_four_b_two(t_meta *m, unsigned comb)
+static void		mini_sorting_four_b_two(t_meta *m, int comb)
 {
 	if (comb == 1342 || comb == 2341)
 	{
@@ -93,7 +93,7 @@ static void		mini_sorting_four_b_two(t_meta *m, unsigned comb)
 	}
 }
 
-static void		mini_sorting_four_b_one(t_meta *m, unsigned comb)
+static void		mini_sorting_four_b_one(t_meta *m, int comb)
 {
 	if (comb == 1234 || comb == 1243)
 	{
@@ -120,7 +120,7 @@ static void		mini_sorting_four_b_one(t_meta *m, unsigned comb)
 	}
 }
 
-void			ft_mini_sort_four_b_one(t_meta *m, unsigned comb)
+void			ft_mini_sort_four_b_one(t_meta *m, int comb)
 {
 	if (comb == 1234 || comb == 1243 || comb == 1324)
 		mini_sorting_four_b_one(m, comb);

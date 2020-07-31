@@ -14,7 +14,7 @@
 
 static void			move_up_parts_ab(t_mstack **s, t_meta *m)
 {
-	unsigned i;
+	int i;
 
 	i = 0;
 	while (i < s[0]->next->quantity)
@@ -32,7 +32,7 @@ static void			move_up_parts_ab(t_mstack **s, t_meta *m)
 
 void				move_up_part(t_mstack **s, t_meta *m)
 {
-	unsigned	i;
+	int	i;
 
 	if (s[0]->pos == 1 && s[0]->next && s[0]->next->pos == 11
 									&& s[0]->quantity >= s[0]->next->quantity)

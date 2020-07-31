@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void		mini_sorting_four_a_one(t_meta *m, unsigned comb)
+static void		mini_sorting_four_a_one(t_meta *m, int comb)
 {
 	if (comb == 1243 || comb == 1342)
 	{
@@ -37,7 +37,7 @@ static void		mini_sorting_four_a_one(t_meta *m, unsigned comb)
 	}
 }
 
-static void		mini_sorting_four_a_two(t_meta *m, unsigned comb)
+static void		mini_sorting_four_a_two(t_meta *m, int comb)
 {
 	if (comb == 1324 || comb == 2314)
 	{
@@ -61,7 +61,7 @@ static void		mini_sorting_four_a_two(t_meta *m, unsigned comb)
 	}
 }
 
-static void		mini_sorting_four_a_three(t_meta *m, unsigned comb)
+static void		mini_sorting_four_a_three(t_meta *m, int comb)
 {
 	if (comb == 2143 || comb == 3142 || comb == 3241)
 	{
@@ -89,7 +89,7 @@ static void		mini_sorting_four_a_three(t_meta *m, unsigned comb)
 	}
 }
 
-void			ft_mini_sort_four_a_one(t_meta *m, unsigned comb)
+void			ft_mini_sort_four_a_one(t_meta *m, int comb)
 {
 	if (comb == 1243 || comb == 1342 || comb == 1423 || comb == 1432)
 		mini_sorting_four_a_one(m, comb);

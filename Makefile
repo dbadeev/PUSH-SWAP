@@ -29,6 +29,7 @@ UTIL =  ft_lstpush.c \
 		ft_lst_rrr.c \
 		ft_exit.c \
 		ft_lstfree.c \
+		ft_lstget.c \
 		ft_lstprint.c \
 		ft_lstsize.c \
 		ft_lstsorted.c \
@@ -49,6 +50,7 @@ SRC =  command_in.c \
 		move_up_part.c \
 		parse_in.c \
 		print_status.c \
+		print_total.c \
 		ps_hint.c
 CMD =  ps.c \
 		rr.c \

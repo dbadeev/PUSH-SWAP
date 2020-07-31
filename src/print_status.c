@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
 
 static void		print_size(t_stack *s)
 {

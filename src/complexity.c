@@ -36,8 +36,7 @@ void			mini_sorting_complexity(t_mstack **s, t_meta *m, int level)
 	ft_mstack_push(s);
 }
 
-static void		div_sort_parts_complexity(t_mstack **s, t_meta *m,
-														unsigned first)
+static void		div_sort_parts_complexity(t_mstack **s, t_meta *m, int first)
 {
 	first = s[0]->first;
 	m->min = s[0]->first + s[0]->quantity / 3;
@@ -81,7 +80,7 @@ static void		move_up_part_complexity(t_mstack **s, t_meta *m)
 	m->complexity += s[0]->quantity;
 }
 
-static int		complexity(t_meta *m, unsigned num, int level)
+static int		complexity(t_meta *m, int num, int level)
 {
 	t_mstack		*t;
 

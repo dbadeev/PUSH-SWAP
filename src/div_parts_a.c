@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void		div_parts_a(t_mstack **s, t_meta *m, unsigned first)
+void		div_parts_a(t_mstack **s, t_meta *m, int first)
 {
 	s[0]->first = first;
 	s[0]->quantity = m->min - first;
