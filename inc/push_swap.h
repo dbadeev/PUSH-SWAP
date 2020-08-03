@@ -18,24 +18,6 @@
 # include "libft.h"
 # include "get_next_line.h"
 
-typedef struct		s_ps
-{
-	int								cur_ac;
-	char							*cur_av;
-	char							flag[6];
-	char							length[3];
-	char							spec;
-	long int						width;
-	long int						pr;
-	char							*flag_mask;
-	char							*length_mask;
-	char							*spec_mask;
-	int								i;
-	int								len;
-	int								da_len;
-	int								da_exp;
-}					t_ps;
-
 void				ps_hint(void);
 void				init_ps(t_meta *meta);
 int					parse_in(int ac, char **av, t_meta *meta, int j);
